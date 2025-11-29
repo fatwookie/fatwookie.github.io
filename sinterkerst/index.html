@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinterklaas & Kerst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #c41e3a 0%, #165b33 50%, #d4af37 100%);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Animated stars */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        /* Pepernoten (cookies) floating */
+        .pepernoot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        
+        /* Main container */
+        .container {
+            text-align: center;
+            padding: 60px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+            border: 8px solid #d4af37;
+        }
+        
+        .container::before {
+            content: '🎅';
+            position: absolute;
+            top: -40px;
+            left: 20px;
+            font-size: 50px;
+            animation: bounce 2s infinite;
+        }
+        
+        .container::after {
+            content: '👴🏻';
+            position: absolute;
+            top: -40px;
+            right: 20px;
+            font-size: 50px;
+            animation: bounce 2s infinite 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: clamp(60px, 15vw, 120px);
+            font-weight: bold;
+            background: linear-gradient(45deg, #c41e3a, #165b33, #d4af37, #c41e3a);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 8px;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            font-size: 30px;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .gift {
+            bottom: 10px;
+            left: 10px;
+        }
+        
+        .mitre {
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars -->
+    <div class="star" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+    <div class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 60%; left: 10%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 70%; left: 85%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 30%; left: 50%; animation-delay: 2s;"></div>
+    <div class="star" style="top: 80%; left: 40%; animation-delay: 2.5s;"></div>
+    
+    <!-- Pepernoten -->
+    <div class="pepernoot" style="top: 15%; left: 25%; animation-delay: 0s;"></div>
+    <div class="pepernoot" style="top: 45%; left: 70%; animation-delay: 1s;"></div>
+    <div class="pepernoot" style="top: 75%; left: 20%; animation-delay: 2s;"></div>
+    <div class="pepernoot" style="top: 55%; left: 90%; animation-delay: 3s;"></div>
+    
+    <!-- Main container -->
+    <div class="container">
+        <h1>20080711</h1>
+        <div class="decoration gift">🎁</div>
+        <div class="decoration mitre">🎄</div>
+    </div>
+</body>
+</html>
